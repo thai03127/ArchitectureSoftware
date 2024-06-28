@@ -1,8 +1,7 @@
 ﻿namespace StoreManage.Models
 {
-    public class Store
+    public class Store : IStore
     {
-        // Các thuộc tính của lớp Store
         public int StoreID { get; set; }
         public string StoreName { get; set; }
         public float Price { get; set; }
@@ -11,8 +10,7 @@
         public DateTime EndDate { get; set; }
         public float TotalPrice { get; set; }
 
-        // Constructor
-        public Store(int storeID, string storeName, float price, string productType, DateTime startDate, DateTime endDate, float totalPrice)
+        public Store(int storeID, string storeName, float price, string productType, DateTime startDate, DateTime endDate)
         {
             StoreID = storeID;
             StoreName = storeName;
@@ -20,10 +18,14 @@
             ProductType = productType;
             StartDate = startDate;
             EndDate = endDate;
-            TotalPrice = totalPrice;
         }
 
-        // Phương thức hiển thị thông tin cửa hàng
+        public void CalculateTotalPrice()
+        {
+            // Logic để tính toán TotalPrice
+            TotalPrice = Price * (EndDate - StartDate).Days;
+        }
+
         public void ShowInformation()
         {
             Console.WriteLine("Store Information: ID = {0}, Name = {1}, Price = {2}, Product Type = {3}, Start Date = {4}, End Date = {5}, Total Price = {6}",
