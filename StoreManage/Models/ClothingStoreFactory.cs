@@ -1,11 +1,12 @@
-﻿using StoreManage.Models;
+﻿using MyMvcApp.Models;
+using StoreManage.Models;
 using System;
 
-namespace MyMvcApp.Models
+namespace StoreManage.Models
 {
-    public class StoreFactory
+    public class ClothingStoreFactory : IStoreFactory
     {
-        // Phương thức tạo đối tượng Store
+        // Phương thức triển khai để tạo đối tượng Store
         public IStore CreateStore(int storeID, string storeName, float price, string productType, DateTime startDate, DateTime endDate)
         {
             return new Store(storeID, storeName, price, productType, startDate, endDate);

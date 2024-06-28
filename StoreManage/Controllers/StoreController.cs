@@ -8,12 +8,12 @@ namespace StoreManage.Controllers
     public class StoreController : Controller
     {
         private readonly JsonFileReaderService _jsonFileReaderService;
-        private readonly StoreFactory _storeFactory;
+        private readonly IStoreFactory _storeFactory;
 
         public StoreController(JsonFileReaderService jsonFileReaderService)
         {
             _jsonFileReaderService = jsonFileReaderService;
-            _storeFactory = new StoreFactory();
+            _storeFactory = new IStoreFactory();
         }
 
         public IActionResult Index()
