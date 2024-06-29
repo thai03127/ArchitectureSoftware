@@ -1,59 +1,56 @@
-﻿@model IEnumerable<StoreManage.Models.Store>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Store List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <h1>Store List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Product Type</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Total Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var store in Model)
-            {
-                <tr>
-                    <td>@store.StoreID</td>
-                    <td>@store.StoreName</td>
-                    <td>@store.Price</td>
-                    <td>@store.ProductType</td>
-                    <td>@store.StartDate.ToString("yyyy-MM-dd")</td>
-                    <td>@store.EndDate.ToString("yyyy-MM-dd")</td>
-                    <td>@store.TotalPrice</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
-</html>
+﻿@model List<StoreManage.Models.Store>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                @foreach (var store in Model)
+                {
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="card-title fw-semibold mb-4">@store.StoreName</h5>
+                        <div class="card">
+                                @if (store.StoreID == 1)
+                                {
+                                    <img src="~/images/products/s4.jpg" class="card-img-top" alt="~.">
+                                }
+                                else{
+                                    <img src="~/images/products/hotelsaigon.jpg" class="card-img-top" alt="~.">
+                                }
+                            <div class="card-body">
+                                <h5 class="card-title">Type: @store.ProductType</h5>
+                                <p class="card-text"> @store.Description</p>
+                                <strong class="card-title">@store.TotalPrice $/Month</strong>
+                                <hr>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "col-md-4">
+                        @Html.Partial("OverviewPartial")
+                    </div>
+                </div>
+                }
+               @*  <div class="row">
+                <div class="col-md-4">
+                    <h5 class="card-title fw-semibold mb-4">Card</h5>
+                    <div class="card">
+                        <img src="~/images/products/s4.jpg" class="card-img-top" alt="~.">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of
+                                the
+                                card's content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Partial("OverviewPartial")
+                </div>
+            </div> *@
+            </div>
+        </div>
+    </div>
+</div>

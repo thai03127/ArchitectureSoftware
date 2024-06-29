@@ -1,0 +1,22 @@
+﻿{
+  "stores": [
+    {
+      "StoreID": 1,
+      "StoreName": "Electronic Store",
+      "ProductType": "Electronic Tools",
+      "StartDate": "2023-06-01",
+      "EndDate": "2023-12-31",
+      "TotalPrice": 7856.99,
+      "Description": "An Electronic Store is a retail shop specializing in selling a wide range of electronic devices and accessories, including computers, home appliances, entertainment systems and related products."
+    },
+    {
+      "StoreID": 2,
+      "StoreName": "SaiGon Hotel",
+      "ProductType": "Booking hotel",
+      "StartDate": "2023-05-01",
+      "EndDate": "2023-11-30",
+      "TotalPrice": 23456.12,
+      "Description": "SaiGon Hotel provides temporary accommodation services for travelers or business guests. Amenities typically include bedrooms, bathrooms, entertainment, and conveniences such as room service."
+    }
+  ]
+}

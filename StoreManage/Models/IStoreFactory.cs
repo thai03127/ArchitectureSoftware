@@ -1,11 +1,11 @@
 ﻿using StoreManage.Models;
 using System;
 
-namespace MyMvcApp.Models
+namespace StoreManage.Models
 {
     public interface IStoreFactory
     {
         // Phương thức tạo đối tượng Store
-        IStore CreateStore(int storeID, string storeName, float price, string productType, DateTime startDate, DateTime endDate);
+        IStore CreateStore(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate);
     }
 }

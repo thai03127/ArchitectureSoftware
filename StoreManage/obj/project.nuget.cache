@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DIaHEJOKeqNbhJ0wJSGcjVxLoQSeE7jBjpmMHf34jsMAQhDaEjze7cAuImOiRn71Zu65o6DMpNLnHxb7Vl718g==",
+  "dgSpecHash": "loFYAWRiIXET+Qw3lZmix6NhBZC3xRoJjjpZh5iw5VeDmSVqyyfOxhi4uCIxcs5oDSY5a2wqS8tazy9+jwwz6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\StoreManage\\StoreManage\\StoreManage.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -4,6 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Đăng ký dịch vụ Singleton
+builder.Services.AddSingleton<StoreService>();
 // Đăng ký các dịch vụ
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<JsonFileReaderService>();
@@ -27,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Store}/{action=Index}/{id?}");
 
 app.Run();
