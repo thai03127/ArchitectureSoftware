@@ -1,5 +1,7 @@
-﻿using StoreManage.Models.Factory;
+
+using StoreManage.Models.Factory;
 using StoreManage.Models.Interface;
+﻿using StoreManage.Models;
 
 namespace StoreManage.Patterns
 {
@@ -31,7 +33,6 @@ namespace StoreManage.Patterns
         {
             return _stores;
         }
-
 
     }
 }

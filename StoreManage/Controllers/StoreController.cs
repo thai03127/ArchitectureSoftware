@@ -1,21 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StoreManage.Models;
 using StoreManage.Models.Factory;
 using StoreManage.Models.Interface;
 using StoreManage.Patterns;
-using StoreManage.Services;
 
 namespace StoreManage.Controllers
 {
     public class StoreController : Controller
     {
-        //private readonly StoreService _storeService;
-
-        //public StoreController(StoreService storeService)
-        //{
-        //    _storeService = storeService;
-        //}
-
         public IActionResult Index()
         {
             // Lấy thể hiện của Singleton
