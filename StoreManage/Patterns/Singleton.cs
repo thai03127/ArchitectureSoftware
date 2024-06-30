@@ -1,13 +1,19 @@
-﻿namespace StoreManage.Patterns
+﻿using StoreManage.Models.Factory;
+using StoreManage.Models.Interface;
+
+namespace StoreManage.Patterns
 {
     internal class Singleton
     {
-        public string storeName { get; set; }
-        private Singleton() { }
-
         private static Singleton _instance;
+        private List<Store> _stores;
 
-        public static Singleton getInstance()
+        private Singleton()
+        {
+            _stores = new List<Store>();
+        }
+
+        public static Singleton GetInstance()
         {
             if (_instance == null)
             {
@@ -15,10 +21,17 @@
             }
             return _instance;
         }
-        public void showInformation(string mesg)
+
+        public void AddStore(Store store)
         {
-            Console.WriteLine("SingleTon {0} - {1}", storeName, mesg);
+            _stores.Add(store);
         }
+
+        public List<Store> GetStores()
+        {
+            return _stores;
+        }
+
 
     }
 }

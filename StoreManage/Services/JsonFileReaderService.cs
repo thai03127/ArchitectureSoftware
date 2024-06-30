@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
-using StoreManage.Models;
+using StoreManage.Models.Interface;
 
 namespace StoreManage.Services
 {

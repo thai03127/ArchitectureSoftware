@@ -1,5 +1,5 @@
-﻿using StoreManage.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using StoreManage.Models.Interface;
 
 namespace StoreManage.Services
 {

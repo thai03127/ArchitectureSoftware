@@ -1,18 +1,18 @@
-﻿namespace StoreManage.Models
+﻿namespace StoreManage.Models.Interface
 {
-    public class Store : IStore
+    public class Store
     {
         public int StoreID { get; set; }
         public string StoreName { get; set; }
         public string ProductType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public float TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
         public string Description { get; set; } // Add Description property to match JSON
 
         public Store() { } // Parameterless constructor for deserialization
 
-        public Store(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, float totalPrice, string description)
+        public Store(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, double totalPrice, string description)
         {
             StoreID = storeID;
             StoreName = storeName;
