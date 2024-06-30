@@ -1,8 +1,13 @@
-﻿namespace StoreManage.Patterns
+﻿using StoreManage.Models;
+
+namespace StoreManage.Patterns
 {
     internal class Singleton
     {
         public string storeName { get; set; }
+        public string storeDes { get; set; }
+        public string sale { get; set; }
+
         private Singleton() { }
 
         private static Singleton _instance;
@@ -15,9 +20,10 @@
             }
             return _instance;
         }
-        public void showInformation(string mesg)
+        public Store showInformation(Store store)
         {
-            Console.WriteLine("SingleTon {0} - {1}", storeName, mesg);
+            MachineStore machineStore = new MachineStore();
+            return machineStore.CreateStore(store);
         }
 
     }
