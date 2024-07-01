@@ -1,10 +1,24 @@
-﻿namespace StoreManage.Patterns.Commands
+﻿using StoreManage.Models;
+
+namespace StoreManage.Patterns.Commands
 {
     public class RemoveBenefitCommand : ICommand
     {
-        public void execute()
+        private Benefit _benefit;
+
+        public RemoveBenefitCommand(Benefit benefit)
         {
-            throw new NotImplementedException();
+            _benefit = benefit;
+        }
+
+        public void Execute()
+        {
+            _benefit.Remove();
+        }
+
+        public void Undo()
+        {
+            _benefit.Add();
         }
     }
 }

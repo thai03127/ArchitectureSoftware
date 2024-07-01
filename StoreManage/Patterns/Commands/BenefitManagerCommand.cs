@@ -1,11 +1,22 @@
 ﻿namespace StoreManage.Patterns.Commands
 {
-    public class BenefitManagerCommand : ICommand
+    internal class BenefitManagerCommand 
     {
-        public void addCommand() { }
-        public void execute()
+        private Stack<ICommand> _commandHistory = new Stack<ICommand>();
+
+        public void ExecuteCommand(ICommand command)
         {
-            throw new NotImplementedException();
+            command.Execute();
+            _commandHistory.Push(command);
+        }
+
+        public void UndoLastCommand()
+        {
+            if (_commandHistory.Count > 0)
+            {
+                var command = _commandHistory.Pop();
+                command.Undo();
+            }
         }
     }
 }

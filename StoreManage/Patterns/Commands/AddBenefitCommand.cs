@@ -1,12 +1,24 @@
-﻿namespace StoreManage.Patterns.Commands
+﻿using StoreManage.Models;
+
+namespace StoreManage.Patterns.Commands
 {
     internal class AddBenefitCommand : ICommand
     {
+        private Benefit _benefit;
 
-
-        public void execute()
+        public AddBenefitCommand(Benefit benefit)
         {
-            throw new NotImplementedException();
+            _benefit = benefit;
+        }
+
+        public void Execute()
+        {
+            _benefit.Add();
+        }
+
+        public void Undo()
+        {
+            _benefit.Remove();
         }
     }
 }
