@@ -1,4 +1,5 @@
 ﻿@model List<StoreManage.Models.Interface.Store>
+
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="card">
@@ -21,12 +22,16 @@
                                 <p class="card-text"> @store.Description</p>
                                 <strong class="card-title">@store.TotalPrice $/Month</strong>
                                 <hr>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a class="btn btn-primary" asp-controller="Store" asp-action="OpenWeb" asp-route-web=@store.LinkWeb>Go somewhere</a>
                             </div>
                         </div>
                     </div>
                     <div class= "col-md-4">
                         @Html.Partial("OverviewPartial")
+                            <div class="alert alert-success" role="alert">
+                                <h2>Average Sales</h2>
+                                <p>@ViewBag.AverageSales $</p>
+                            </div>
                     </div>
                 </div>
                 }
@@ -51,6 +56,8 @@
                 </div>
             </div> *@
             </div>
+
+          
         </div>
     </div>
 </div>

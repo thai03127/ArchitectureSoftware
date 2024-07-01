@@ -4,9 +4,9 @@ namespace StoreManage.Models.Factory
 {
     internal class StoreCreateFactory : IStoreFactory
     {
-        public Store CreateStore(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, double TotalPrice, string Description)
+        public Store CreateStore(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, double TotalPrice, string Description, string LinkWeb)
         {
-            Store store = new Store(storeID, storeName, productType, startDate, endDate, TotalPrice, Description);
+            Store store = new Store(storeID, storeName, productType, startDate, endDate, TotalPrice, Description, LinkWeb);
             store.CalculateTotalPrice();
             store.ShowInformation();
             return store;

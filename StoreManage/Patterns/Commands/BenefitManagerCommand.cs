@@ -1,6 +1,6 @@
 ﻿namespace StoreManage.Patterns.Commands
 {
-    internal class BenefitManagerCommand 
+    internal class BenefitManagerCommand
     {
         private Stack<ICommand> _commandHistory = new Stack<ICommand>();
 
@@ -8,6 +8,11 @@
         {
             command.Execute();
             _commandHistory.Push(command);
+        }
+
+        public void Undo()
+        {
+            throw new NotImplementedException();
         }
 
         public void UndoLastCommand()

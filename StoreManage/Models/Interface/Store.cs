@@ -10,9 +10,10 @@
         public double TotalPrice { get; set; }
         public string Description { get; set; } // Add Description property to match JSON
 
+        public string LinkWeb {  get; set; }
         public Store() { } // Parameterless constructor for deserialization
 
-        public Store(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, double totalPrice, string description)
+        public Store(int storeID, string storeName, string productType, DateTime startDate, DateTime endDate, double totalPrice, string description, string linkWeb)
         {
             StoreID = storeID;
             StoreName = storeName;
@@ -21,6 +22,7 @@
             EndDate = endDate;
             TotalPrice = totalPrice;
             Description = description;
+            LinkWeb=linkWeb;
         }
 
         public void CalculateTotalPrice()

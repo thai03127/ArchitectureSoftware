@@ -11,11 +11,11 @@ namespace StoreManage.Patterns
             Process.Start(processStartInfo);
         }
 
-        public void openGitWeb()
+        public void openWeb(string web)
 
         //@ round string, round data là dữ liệu thô
         {
-            ProcessStartInfo processStartInfo = new ProcessStartInfo(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://localhost:7199/");
+            ProcessStartInfo processStartInfo = new ProcessStartInfo(@"C:\Program Files\Google\Chrome\Application\chrome.exe", web);
             Process.Start(processStartInfo);
         }
         public void makeFolder(string path)
