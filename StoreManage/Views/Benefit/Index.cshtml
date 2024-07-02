@@ -1,4 +1,5 @@
-﻿@*
+﻿
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model List<StoreManage.Models.Benefit>
@@ -7,42 +8,45 @@
     ViewBag.Title = "Benefits List";
 }
 
+<div class="alert alert-success" role="alert">
+    <h2>Benefit list</h2>
 
-<h2>Benefits List</h2>
+    @using (Html.BeginForm("AddBenefit", "Benefit", FormMethod.Post))
+    {
+        <input type="text" name="benefitName" placeholder="Enter Benefit Name" required />
+        <input type="submit" value="Add Benefit" />
+    }
 
-@using (Html.BeginForm("AddBenefit", "Benefit", FormMethod.Post))
-{
-    <input type="text" name="benefitName" placeholder="Enter Benefit Name" required />
-    <input type="submit" value="Add Benefit" />
-}
-
-<hr />
-
-@if (Model != null && Model.Count > 0)
-{
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th></th>
-        </tr>
-        @foreach (var benefit in Model)
-        {
+    <hr />
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
             <tr>
-                <td>@benefit.benefitID</td>
-                <td>@benefit.benefitName</td>
-                <td>
-                    @using (Html.BeginForm("RemoveBenefit", "Benefit", FormMethod.Post))
-                    {
-                        @Html.Hidden("id", benefit.benefitID)
-                        <input type="submit" value="Remove" onclick="return confirm('Are you sure you want to remove this benefit?');" />
-                    }
-                </td>
+                <th>ID</th>
+                <th>Name</th>
+                <th></th>
             </tr>
-        }
-    </table>
-}
-else
-{
-    <p>No benefits found.</p>
-}
+            @foreach (var benefit in Model)
+            {
+                <tr>
+                    <td>@benefit.benefitID</td>
+                    <td>@benefit.benefitName</td>
+                    <td>
+                        @using (Html.BeginForm("RemoveBenefit", "Benefit", FormMethod.Post))
+                        {
+                            @Html.Hidden("id", benefit.benefitID)
+                            <input type="submit" value="Remove" onclick="return confirm('Are you sure you want to remove this benefit?');" />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No benefits found.</p>
+    }
+</div>
+
+
+

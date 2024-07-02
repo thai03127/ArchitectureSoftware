@@ -24,9 +24,13 @@ namespace StoreManage.Controllers
         [HttpPost]
         public ActionResult AddBenefit(string benefitName)
         {
-            // Thực hiện thêm Benefit mới
-            int newBenefitID = benefits.Count + 1; // Tạm thời làm như vậy, thực tế cần xử lý logic phù hợp
+            int newBenefitID = benefits.Count + 1;
             Benefit newBenefit = new Benefit { benefitID = newBenefitID, benefitName = benefitName };
+
+            // Thêm newBenefit vào danh sách benefits
+            benefits.Add(newBenefit);
+
+            // Gọi các command để thực hiện thêm vào database hoặc lưu trữ
             ICommand addCommand = new AddBenefitCommand(newBenefit, benefits);
             benefitManager.AddCommand(addCommand);
             benefitManager.ExecuteCommands();
@@ -37,16 +41,20 @@ namespace StoreManage.Controllers
         [HttpPost]
         public ActionResult RemoveBenefit(int id)
         {
-            // Xác định Benefit cần xóa
             Benefit selectedBenefit = benefits.Find(b => b.benefitID == id);
             if (selectedBenefit != null)
             {
+                // Xóa selectedBenefit khỏi danh sách benefits
+                benefits.Remove(selectedBenefit);
+
+                // Gọi command để xóa khỏi database hoặc lưu trữ
                 ICommand removeCommand = new RemoveBenefitCommand(selectedBenefit, benefits);
                 benefitManager.AddCommand(removeCommand);
                 benefitManager.ExecuteCommands();
             }
 
             return RedirectToAction("Index");
+
         }
     }
 }
