@@ -2,26 +2,20 @@
 {
     internal class BenefitManagerCommand
     {
-        private Stack<ICommand> _commandHistory = new Stack<ICommand>();
+        private List<ICommand> commands = new List<ICommand>();
 
-        public void ExecuteCommand(ICommand command)
+        public void AddCommand(ICommand command)
         {
-            command.Execute();
-            _commandHistory.Push(command);
+            commands.Add(command);
         }
 
-        public void Undo()
+        public void ExecuteCommands()
         {
-            throw new NotImplementedException();
-        }
-
-        public void UndoLastCommand()
-        {
-            if (_commandHistory.Count > 0)
+            foreach (var command in commands)
             {
-                var command = _commandHistory.Pop();
-                command.Undo();
+                command.Execute();
             }
+            commands.Clear(); // Clear executed commands
         }
     }
 }

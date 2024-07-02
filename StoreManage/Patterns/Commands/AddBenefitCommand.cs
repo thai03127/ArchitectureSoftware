@@ -4,21 +4,18 @@ namespace StoreManage.Patterns.Commands
 {
     internal class AddBenefitCommand : ICommand
     {
-        private Benefit _benefit;
+        private Benefit benefit;
+        private List<Benefit> benefits; // Assuming this is where benefits are stored
 
-        public AddBenefitCommand(Benefit benefit)
+        public AddBenefitCommand(Benefit benefit, List<Benefit> benefits)
         {
-            _benefit = benefit;
+            this.benefit = benefit;
+            this.benefits = benefits;
         }
 
         public void Execute()
         {
-            _benefit.Add();
-        }
-
-        public void Undo()
-        {
-            _benefit.Remove();
+            benefits.Add(benefit);
         }
     }
 }

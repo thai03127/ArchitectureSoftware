@@ -4,21 +4,18 @@ namespace StoreManage.Patterns.Commands
 {
     public class RemoveBenefitCommand : ICommand
     {
-        private Benefit _benefit;
+        private Benefit benefit;
+        private List<Benefit> benefits;
 
-        public RemoveBenefitCommand(Benefit benefit)
+        public RemoveBenefitCommand(Benefit benefit, List<Benefit> benefits)
         {
-            _benefit = benefit;
+            this.benefit = benefit;
+            this.benefits = benefits;
         }
 
         public void Execute()
         {
-            _benefit.Remove();
-        }
-
-        public void Undo()
-        {
-            _benefit.Add();
+            benefits.Remove(benefit);
         }
     }
 }
